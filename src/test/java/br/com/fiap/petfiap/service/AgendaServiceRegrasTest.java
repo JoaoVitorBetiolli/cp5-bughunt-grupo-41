@@ -59,4 +59,18 @@ public class AgendaServiceRegrasTest {
         verify(repository, never()).findByPetNome(any());
         verify(repository, never()).save(any());
     }
+   
+    @Test
+    public void deveRecusarConclusaoQuandoAtendimentoCancelado() {
+        // Arrange: o atendimento foi cancelado
+        Banho cancelado = banhoDoRexAmanha();
+        cancelado.setStatus("CANCELADO");
+        when(repository.findById(1L)).thenReturn(Optional.of(cancelado));
+
+        // Act + Assert: contrato - concluir atendimento CANCELADO e recusado
+        assertThrows(StatusInvalidoException.class, () -> service.concluir(1L));
+
+        // Nada e salvo quando a operacao e recusada
+        verify(repository, never()).save(any());
+    }
 }
