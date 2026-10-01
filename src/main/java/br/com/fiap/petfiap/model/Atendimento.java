@@ -11,8 +11,9 @@ import java.time.LocalDateTime;
 @Table(name = "atendimentos")
 public abstract class Atendimento {
 
-    @Id
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
     private int protocolo;
 
