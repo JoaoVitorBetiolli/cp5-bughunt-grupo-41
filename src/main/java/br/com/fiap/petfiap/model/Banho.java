@@ -10,6 +10,10 @@ public class Banho extends Atendimento {
 
     public static final String TIPO = "BANHO";
 
+    private static final double PRECO_PEQUENO = 60.0;
+    private static final double PRECO_MEDIO = 80.0;
+    private static final double PRECO_GRANDE = 100.0;
+
     public Banho() {
     }
 
@@ -25,11 +29,11 @@ public class Banho extends Atendimento {
     @Override
     public double calcularPreco() {
         if ("PEQUENO".equals(getPetPorte())) {
-            return 60.0;
+            return PRECO_PEQUENO;
         } else if ("MEDIO".equals(getPetPorte())) {
-            return 80.0;
+            return PRECO_MEDIO;
         }
-        return 100.0;
+        return PRECO_GRANDE;
     }
 
     @Override

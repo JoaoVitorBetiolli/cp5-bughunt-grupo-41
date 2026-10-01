@@ -10,6 +10,10 @@ public class Tosa extends Atendimento {
 
     public static final String TIPO = "TOSA";
 
+    private static final double PRECO_PEQUENO = 70.0;
+    private static final double PRECO_MEDIO = 90.0;
+    private static final double PRECO_GRANDE = 120.0;
+
     public Tosa() {
     }
 
@@ -25,11 +29,11 @@ public class Tosa extends Atendimento {
     @Override
     public double calcularPreco() {
         if ("PEQUENO".equals(getPetPorte())) {
-            return 70.0;
+            return PRECO_PEQUENO;
         } else if ("MEDIO".equals(getPetPorte())) {
-            return 90.0;
+            return PRECO_MEDIO;
         }
-        return 120.0;
+        return PRECO_GRANDE;
     }
 
     @Override
